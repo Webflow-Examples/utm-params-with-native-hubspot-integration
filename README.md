@@ -2,9 +2,9 @@
 
 Automatically send UTM parameters with form submissions when using the native Hubspot integration.
 
-Clone an example site from Made in Webflow:
+Example site below with details:
 
-URL GOES HERE
+https://utm-params-with-hubspot.webflow.io/
 
 # How it works
 
@@ -14,9 +14,9 @@ When creating the form in Hubspot, we need to consider the number of UTM paramet
 
 `mydomain.com/?utm_source=newsletter&utm_medium=email&utm_campaign=spring_sale`
 
-We would need three inputs in Hubspot for each of the UTM parameters — utm_source, utm_medium, and utm_campaign.
+We would need three inputs in Hubspot for each of the UTM parameters — utm_source, utm_medium, and utm_campaign. The UTM inputs are in addition to standard form inputs — i.e., name, email, etc.
 
-In Webflow, use the custom code embed element to add a hidden input inside our form block before the submit button. Using the example from above, we need our main input fields plus three hidden inputs for each of the UTM parameters. Each hidden input should have two attributes — `name` and `hidden`. Example below.
+In Webflow, use the custom code embed element to add a hidden input inside our form block before the submit button. We need our main input fields plus hidden inputs for each of the UTM parameters. Each hidden input should have two attributes — `name` and `hidden`. Example below.
 
 `<input name="the-utm-name" hidden />`
 
@@ -32,7 +32,7 @@ The name attribute on the form will allow us to select these inputs during the f
 
 # The Javascript
 
-On page load, the script will look for the inputs with the same UTM key — i.e., `utm_medium` — and assign the relevant value to the input.
+The script will look for the inputs with the same UTM key — i.e., `utm_medium` — and assign it relevant value.
 
 ```js
 // get url parameters
